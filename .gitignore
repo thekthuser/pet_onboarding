@@ -1,0 +1,8 @@
+*.pyc
+*.swo
+*.swp
+
+*.nogit
+venv/
+*_settings.py
+*.db
