@@ -6,9 +6,9 @@
     {{ form.csrf_token }}
     {% for field in form if field.widget.input_type != 'hidden' %}
       <tr>
-        <td>{{ field.label }}</td><td>{{ field }}</td>
+        <td>{{ field.label }}</td><td>{{ field }}</td><br />
         {% if field.errors %}
-          <td>{{ field.errors[0] }}</td>
+          <td>{{ field.errors[0] }}</td><br />
         {% endif %}
       </tr>
     {% endfor %}
