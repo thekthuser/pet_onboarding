@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 dirname = os.path.dirname(__file__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + dirname + '/../onboard.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = u'sqlite:///' + dirname + u'/../onboard.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG'] = True
 db = SQLAlchemy(app)
