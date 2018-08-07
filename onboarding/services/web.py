@@ -20,3 +20,8 @@ def register_web_endpoint(app):
       db.session.commit()
       return 'OK'
     return redirect(url_for('index'))
+
+  @app.route(u'/view_profiles')
+  def view_profiles():
+    profiles = Profile.query.all()
+    return render_template('profiles_view.html', profiles=profiles)

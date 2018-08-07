@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<div id='body'>
+  <table>
+    <tr>
+      <th>Owner name</th>
+      <th>Pet Name</th>
+      <th>Zip</th>
+      <th>Email</th>
+      <th>Breed</th>
+      <th>Gender</th>
+    </tr>
+  {% for profile in profiles %}
+    <tr>
+      <td>{{ profile.owner_name }}</td>
+      <td>{{ profile.pet_name }}</td>
+      <td>{{ profile.zip_code }}</td>
+      <td>{{ profile.email }}</td>
+      <td>{{ profile.breed }}</td>
+      <td>{{ profile.gender }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+</div>
+{% endblock %}
