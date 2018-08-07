@@ -3,7 +3,15 @@
 <div id='body'>
   Please fill out this pet profile:
   <form method='POST' action=''>
-    {# form.csrf_token #}
+    {{ form.csrf_token }}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+      <tr>
+        <td>{{ field.label }}</td><td>{{ field }}</td>
+        {% if field.errors %}
+          <td>{{ field.errors[0] }}</td>
+        {% endif %}
+      </tr>
+    {% endfor %}
   </form>
 </div>
 {% endblock %}
