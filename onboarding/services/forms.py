@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, IntegerField, SelectField, StringField, validators
+from wtforms import BooleanField, IntegerField, SelectField, SelectMultipleField, StringField, validators
 from wtforms.fields.html5 import EmailField
 from onboarding.models import Profile
 
@@ -15,9 +15,9 @@ class ProfileForm(FlaskForm):
   def body_validator(form, field):
     if field.data not in Profile.BODY_LEVEL.keys():
       raise validators.ValidationError(u'Please choose an body type.')
-  #def food_validator(form, field):
-  #  if field.data not in Profile.FOOD_TYPES.keys():
-  #    raise validators.ValidationError(u'Please choose all food types.')
+  def food_validator(form, field):
+    if field.data not in Profile.FOOD_TYPES.keys():
+      raise validators.ValidationError(u'Please choose all food types.')
   def protein_validator(form, field):
     if field.data not in Profile.PRIMARY_PROTEIN.keys():
       raise validators.ValidationError(u'Please choose a primary protein.')
@@ -42,8 +42,8 @@ class ProfileForm(FlaskForm):
   weight = IntegerField(u'Weight: ', [validators.Optional()])
   body_type = SelectField(u'Body type: ', [body_validator, validators.Optional()],
     choices=zip(Profile.BODY_LEVEL.keys(), Profile.BODY_LEVEL.values()))
-  #food_types = MultiCheckboxField(u'Food types: ', [food_validator, validators.Optional()],
-  #  choices=zip(Profile.FOOD_TYPES.keys(), Profile.FOOD_TYPES.values()))
+  food_types = SelectMultipleField(u'Food types: ', [food_validator, validators.Optional()],
+    choices=zip(Profile.FOOD_TYPES.keys(), Profile.FOOD_TYPES.values()))
   protein = SelectField(u'Primary protein: ', [protein_validator, validators.Optional()],
     choices=zip(Profile.PRIMARY_PROTEIN.keys(), Profile.PRIMARY_PROTEIN.values()))
   allergies = StringField(u'Allergies: ')
