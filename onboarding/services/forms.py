@@ -27,6 +27,8 @@ class ProfileForm(FlaskForm):
     choices=zip(Profile.BODY_LEVEL.keys(), Profile.BODY_LEVEL.values()))
   food_types = SelectMultipleField(u'Food types: ', [food_validator, validators.Optional()],
     choices=zip(Profile.FOOD_TYPES.keys(), Profile.FOOD_TYPES.values()))
+  human_food = SelectField(u'Eats human food: ', [validators.Optional()],
+    choices=zip(Profile.HUMAN_FOOD.keys(), Profile.HUMAN_FOOD.values()))
   protein = SelectField(u'Primary protein: ', [validators.Optional()],
     choices=zip(Profile.PRIMARY_PROTEIN.keys(), Profile.PRIMARY_PROTEIN.values()))
   allergies = StringField(u'Allergies: ')

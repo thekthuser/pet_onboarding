@@ -8,6 +8,7 @@ class Profile(db.Model):
   BODY_LEVEL = {u'SKINNY': u'Skinny', u'IDEAL': u'Ideal', u'CHUBBY': u'Chubby'}
   FOOD_TYPES = {u'DRY': u'Dry Food', u'WET': u'Wet Food', u'RAW': u'Raw Food',
     u'FROZEN': u'Freeze Dried', u'HOME': u'Home Food', u'FRESH': u'Fresh Food'}
+  HUMAN_FOOD = {u'NEVER': u'Never', u'SOMETIMES': u'Sometimes', u'ALWAYS': u'Always'}
   PRIMARY_PROTEIN = {u'LAMB': u'Lamb', u'TURKEY': u'Turkey', 
     u'CHICKEN': u'Chicken', u'BEEF': u'Beef'}
   DENTAL_CARE = {u'TREATS': u'Dental Treats', u'OTHER': u'Other Dental Care',
@@ -31,6 +32,7 @@ class Profile(db.Model):
   body_type = db.Column(db.Enum(*BODY_LEVEL.keys(), name=u'profile_body', validate_strings=True))
   #food_types is not an Enum, to handle multiple choices
   food_types = db.Column(db.Unicode(128), default=None)
+  human_food = db.Column(db.Enum(*HUMAN_FOOD.keys(), name=u'profile_human', validate_strings=True))
   protein = db.Column(db.Enum(*PRIMARY_PROTEIN.keys(), name=u'profile_protein', validate_strings=True))
   allergies = db.Column(db.Unicode(256), default=None)
   picky_eater = db.Column(db.Boolean(), default=False)
