@@ -2,12 +2,6 @@ from onboarding.models import Profile, db
 from onboarding.services.forms import ProfileForm
 from flask import redirect, render_template, request, url_for
 
-from flask_wtf import Form
-from flask_wtf import FlaskForm
-#from wtforms.ext.appengine.db import model_form
-from wtforms.ext.sqlalchemy.orm import model_form
-from wtforms import validators
-
 
 def register_web_endpoint(app):
   @app.route(u'/', methods=['GET', 'POST'])
