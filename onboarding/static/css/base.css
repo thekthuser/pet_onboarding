@@ -32,3 +32,14 @@ td, th {
   vertical-align: top;
   padding-right: .5em;
 }
+
+#profiles_view th {
+  padding-bottom: 1em;
+  padding-right: 1em;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+#profiles-view td {
+  padding-left: 1em;
+}
