@@ -13,7 +13,7 @@ def register_web_endpoint(app):
       if existing:
         for e in existing:
           if e.pet_name == form.pet_name.data:
-            return u'This pet has already been registered.'
+            return render_template(u'registered.html', previously_registered = True)
       if form.food_types.data:
         form.food_types.data = ','.join(form.food_types.data)
       else:
@@ -21,7 +21,7 @@ def register_web_endpoint(app):
       form.populate_obj(profile)
       db.session.add(profile)
       db.session.commit()
-      return u'OK'
+      return render_template(u'registered.html', previously_registered = False)
     return render_template(u'profile_index.html', form=form)
 
   @app.route(u'/view_profiles')

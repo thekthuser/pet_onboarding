@@ -43,3 +43,7 @@ td, th {
 #profiles-view td {
   padding-left: 1em;
 }
+
+a {
+  color: #FF5543;
+}

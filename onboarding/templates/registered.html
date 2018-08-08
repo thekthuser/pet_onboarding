@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<div id='body'>
+  {% if previously_registered %}
+  <h2>This pet has already been registered.</h2>
+  {% else %}
+  <h2>Your pet is now registered.</h2>
+  {% endif %}
+  <a href="{{ url_for('index') }}">return</a>
+</div>
+{% endblock %}
