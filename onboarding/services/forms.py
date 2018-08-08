@@ -16,8 +16,9 @@ class ProfileForm(FlaskForm):
     if field.data not in Profile.BODY_LEVEL.keys():
       raise validators.ValidationError(u'Please choose an body type.')
   def food_validator(form, field):
-    if field.data not in Profile.FOOD_TYPES.keys():
-      raise validators.ValidationError(u'Please choose all food types.')
+    for f in field.data:
+      if f not in Profile.FOOD_TYPES.keys():
+        raise validators.ValidationError(u'Please choose some food types.')
   def protein_validator(form, field):
     if field.data not in Profile.PRIMARY_PROTEIN.keys():
       raise validators.ValidationError(u'Please choose a primary protein.')
