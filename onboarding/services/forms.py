@@ -35,7 +35,6 @@ class ProfileForm(FlaskForm):
   breed = StringField(u'Your pet\'s breed: ', [validators.Optional()])
   gender = SelectField(u'Your pet\'s gender: ', [gender_validator], 
     choices=zip(Profile.GENDERS.keys(), Profile.GENDERS.values()))
-
   neutered = BooleanField(u'Neutered: ')
   age = IntegerField(u'Age: ', [validators.Optional()])
   activity_level = SelectField(u'Activity level: ', [activity_validator, validators.Optional()],
