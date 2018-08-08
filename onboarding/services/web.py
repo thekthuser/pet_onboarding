@@ -1,25 +1,25 @@
-from onboarding import CsrfProtect, csrf
 from onboarding.models import Profile, db
 from onboarding.services.forms import ProfileForm
-from flask import redirect, render_template, url_for
+from flask import redirect, render_template, request, url_for
+
+from flask_wtf import Form
+from flask_wtf import FlaskForm
+#from wtforms.ext.appengine.db import model_form
+from wtforms.ext.sqlalchemy.orm import model_form
+from wtforms import validators
+
 
 def register_web_endpoint(app):
-  @app.route(u'/')
+  @app.route(u'/', methods=['GET', 'POST'])
   def index():
-    form = ProfileForm()
-    return render_template(u'profile_index.html', form=form)
-
-  @app.route(u'/edit_profile', methods=['POST'])
-  def edit_profile():
-    form = ProfileForm()
-    if form.validate():
-      profile = Profile(owner_name=form.owner_name.data, 
-        pet_name=form.pet_name.data, zip_code=form.zip_code.data, 
-        email=form.email.data, breed=form.breed.data, gender=form.gender.data)
+    form = ProfileForm(request.form)
+    if request.method == 'POST' and form.validate():
+      profile = Profile()
+      form.populate_obj(profile)
       db.session.add(profile)
       db.session.commit()
       return 'OK'
-    return redirect(url_for('index'))
+    return render_template(u'profile_index.html', form=form)
 
   @app.route(u'/view_profiles')
   def view_profiles():

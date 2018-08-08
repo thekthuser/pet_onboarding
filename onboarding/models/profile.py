@@ -10,16 +10,17 @@ class Profile(db.Model):
     u'FROZEN': u'Freeze Dried', u'HOME': u'Home Food', u'FRESH': u'Fresh Food'}
   PRIMARY_PROTEIN = {u'LAMB': u'Lamb', u'TURKEY': u'Turkey', 
     u'CHICKEN': u'Chicken', u'BEEF': u'Beef'}
-  DENTAL_CARE = {u'TREATS': u'Dental Treats', u'OTHER': u'Other Dental Care'}
+  DENTAL_CARE = {u'TREATS': u'Dental Treats', u'OTHER': u'Other Dental Care',
+    u'NONE': u'None'}
   COAT_TYPES = {u'SHORT': u'Short-Coated', u'MEDIUM': u'Medium-Coated', 
       u'LONG': u'Long-Coated', u'WIRE': u'Wire-Coated', u'CURLY': u'Curly-Coated',
       u'HAIRLESS': u'Hairless'}
 
   id = db.Column(db.Integer, primary_key=True)
-  owner_name = db.Column(db.Unicode(128), default=None)
-  pet_name = db.Column(db.Unicode(128), default=None)
-  zip_code = db.Column(db.Unicode(16), default=None)
-  email = db.Column(db.Unicode(128), default=None)
+  owner_name = db.Column(db.Unicode(128), default=None, nullable=True)
+  pet_name = db.Column(db.Unicode(128), default=None, nullable=True)
+  zip_code = db.Column(db.Unicode(16), default=None, nullable=True)
+  email = db.Column(db.Unicode(128), default=None, nullable=True)
   breed = db.Column(db.Unicode(64), default=None)
   gender = db.Column(db.Enum(*GENDERS.keys(), name=u'profile_genders'))
   neutered = db.Column(db.Boolean(), default=False)
