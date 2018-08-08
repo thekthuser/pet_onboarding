@@ -28,7 +28,7 @@ input, select, textarea {
   margin-bottom: .5em;
 }
 
-td {
+td, th {
   vertical-align: top;
   padding-right: .5em;
 }
