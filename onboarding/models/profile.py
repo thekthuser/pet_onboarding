@@ -29,8 +29,8 @@ class Profile(db.Model):
     name=u'profile_activity'))
   weight = db.Column(db.Integer, default=None)
   body_type = db.Column(db.Enum(*BODY_LEVEL.keys(), name=u'profile_body', validate_strings=True))
-  food_types = db.Column(db.Enum(*FOOD_TYPES.keys(), 
-    name=u'profile_food'))
+  #food_types is not an Enum, to handle multiple choices
+  food_types = db.Column(db.Unicode(128), default=None)
   protein = db.Column(db.Enum(*PRIMARY_PROTEIN.keys(), name=u'profile_protein', validate_strings=True))
   allergies = db.Column(db.Unicode(256), default=None)
   picky_eater = db.Column(db.Boolean(), default=False)

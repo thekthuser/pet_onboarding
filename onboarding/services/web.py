@@ -14,6 +14,10 @@ def register_web_endpoint(app):
         for e in existing:
           if e.pet_name == form.pet_name.data:
             return u'This pet has already been registered.'
+      if form.food_types.data:
+        form.food_types.data = ','.join(form.food_types.data)
+      else:
+        form.food_types.data = None
       form.populate_obj(profile)
       db.session.add(profile)
       db.session.commit()
