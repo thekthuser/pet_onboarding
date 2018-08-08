@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <div id='body'>
-  Please fill out this pet profile:
+  <h2>Please fill out this pet profile:</h2>
   <form method='POST' action="{{ url_for('index') }}">
   {{ form.csrf_token() }}
   <table>

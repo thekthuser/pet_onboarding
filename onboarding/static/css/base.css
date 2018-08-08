@@ -1,0 +1,34 @@
+body {
+  background: #FFFFFF;
+  color: #FF5543;
+  font-family: sans-serif;
+}
+#container {
+  display: flex;
+}
+#sidebar {
+  justify-content: flex-start;
+  margin: 2em;
+}
+#body {
+  justify-content: flex-end;
+  margin-top: 8em;
+}
+h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+h2 {
+  font-size: 1.5em;
+  margin-bottom: .5em;
+}
+input, select, textarea {
+  color: #FF5543;
+  margin-bottom: .5em;
+}
+
+td {
+  vertical-align: top;
+  padding-right: .5em;
+}

@@ -2,9 +2,14 @@
   <head>
     <title>Onboarding</title>
     <link rel='stylesheet' href="{{ url_for('static', filename='css/reset.css') }}" type='text/css' />
+    <link rel='stylesheet' href="{{ url_for('static', filename='css/base.css') }}" type='text/css' />
   </head>
   <body>
     <div id='container'>
+      <div id='sidebar'>
+        <h1>Pet Onboarding</h1>
+        <img src="{{ url_for('static', filename='images/dog.png') }}" />
+      </div>
       {% block body %}
       {% endblock %}
     </div>
