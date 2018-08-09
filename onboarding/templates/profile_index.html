@@ -3,7 +3,7 @@
 <div id='body'>
   <h2>Please fill out this pet profile:</h2>
   <form method='POST' action="{{ url_for('index') }}">
-  {{ form.csrf_token() }}
+  {{ form.csrf_token }}
   <table>
     {% for field in form if field.widget.input_type != 'hidden' %}
       <tr>
