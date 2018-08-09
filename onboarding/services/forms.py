@@ -14,10 +14,10 @@ class ProfileForm(FlaskForm):
 
   owner_name = StringField(u'Your name: ', [validators.DataRequired()])
   pet_name = StringField(u'Your pet\'s name: ', [validators.DataRequired()])
-  zip_code = StringField(u'Zipcode: ', [validators.DataRequired()])
-  email = EmailField(u'Email: ', [validators.DataRequired(), validators.Email()])
-  breed = StringField(u'Your pet\'s breed: ', [validators.Optional()])
-  gender = SelectField(u'Your pet\'s gender: ', 
+  zip_code = StringField(u'Your zipcode: ', [validators.DataRequired()])
+  email = EmailField(u'Your email: ', [validators.DataRequired(), validators.Email()])
+  breed = StringField(u'Breed: ', [validators.Optional()])
+  gender = SelectField(u'Gender: ', 
     choices=zip(Profile.GENDERS.keys(), Profile.GENDERS.values()))
   neutered = BooleanField(u'Neutered: ')
   age = DateField(u'Birthdate: ', [validators.Optional()])
