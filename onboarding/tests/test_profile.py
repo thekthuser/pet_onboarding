@@ -5,7 +5,7 @@ import unittest
 class ProfileTests(BaseTest):
   def setUp(self):
     super(ProfileTests, self).setUp()
-    self.full_form = {u'owner_name': u'Chris', u'pet_name': u'TC', u'zip_code': u'11101', u'email': u'a@example.com', u'breed': u'Cat', u'gender': u'MALE', u'neutered': True, u'age': u'5', u'activity_level': u'LIGHT', u'weight': u'18', u'body_type': u'CHUBBY', u'food_types': u'', u'human_food': u'NEVER', u'protein': u'CHICKEN', u'allergies': u'', u'picky_eater': True, u'dental': u'NONE', u'illnesses': u'', u'medication': u'', u'coat': u'SHORT'}
+    self.full_form = {u'owner_name': u'Chris', u'pet_name': u'TC', u'zip_code': u'11101', u'email': u'a@example.com', u'breed': u'Cat', u'gender': u'MALE', u'neutered': True, u'age': u'2018-08-08', u'activity_level': u'LIGHT', u'weight': u'18', u'body_type': u'CHUBBY', u'food_types': u'', u'human_food': u'NEVER', u'protein': u'CHICKEN', u'allergies': u'', u'picky_eater': True, u'dental': u'NONE', u'illnesses': u'', u'medication': u'', u'coat': u'SHORT'}
 
   def test_view_index(self):
     u"""
@@ -66,7 +66,7 @@ class ProfileTests(BaseTest):
     self.assertEqual(profile.breed, u'Cat')
     self.assertEqual(profile.gender, u'MALE')
     self.assertEqual(profile.neutered, True)
-    self.assertEqual(profile.age, 5)
+    self.assertEqual(profile.age, u'2018-08-08')
     self.assertEqual(profile.activity_level, u'LIGHT')
     self.assertEqual(profile.weight, 18)
     self.assertEqual(profile.body_type, u'CHUBBY')
