@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import BooleanField, IntegerField, SelectField, SelectMultipleField, StringField, validators
 from wtforms.fields.html5 import EmailField
 from onboarding.models import Profile
+from wtforms.fields.html5 import DateField
 
 class ProfileForm(FlaskForm):
   class Meta:
@@ -19,7 +20,7 @@ class ProfileForm(FlaskForm):
   gender = SelectField(u'Your pet\'s gender: ', 
     choices=zip(Profile.GENDERS.keys(), Profile.GENDERS.values()))
   neutered = BooleanField(u'Neutered: ')
-  age = IntegerField(u'Age: ', [validators.Optional()])
+  age = DateField(u'Birthdate: ', [validators.Optional()])
   activity_level = SelectField(u'Activity level: ', [validators.Optional()],
     choices=zip(Profile.ACTIVITY_LEVEL.keys(), Profile.ACTIVITY_LEVEL.values()))
   weight = IntegerField(u'Weight: ', [validators.Optional()])
