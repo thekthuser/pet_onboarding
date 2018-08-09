@@ -2,20 +2,26 @@ from onboarding import db
 
 class Profile(db.Model):
   __tablename__ = u'profiles'
-  GENDERS = {u'MALE': u'Male', u'FEMALE': u'Female'}
+  GENDERS = {u'MALE': u'Male', u'FEMALE': u'Female', u'UNSPECIFIED': u'Unspecified'}
   ACTIVITY_LEVEL = {u'SEDENTARY': u'Sedentary', u'LIGHT': u'Light',
-    u'MODERATE': u'Moderate', u'HIGH': u'High'}
-  BODY_LEVEL = {u'SKINNY': u'Skinny', u'IDEAL': u'Ideal', u'CHUBBY': u'Chubby'}
-  FOOD_TYPES = {u'DRY': u'Dry Food', u'WET': u'Wet Food', u'RAW': u'Raw Food',
-    u'FROZEN': u'Freeze Dried', u'HOME': u'Home Food', u'FRESH': u'Fresh Food'}
-  HUMAN_FOOD = {u'NEVER': u'Never', u'SOMETIMES': u'Sometimes', u'ALWAYS': u'Always'}
+    u'MODERATE': u'Moderate', u'HIGH': u'High', u'UNSPECIFIED': u'Unspecified'}
+  BODY_LEVEL = {u'SKINNY': u'Skinny', u'IDEAL': u'Ideal', u'CHUBBY': u'Chubby', 
+    u'UNSPECIFIED': u'Unspecified'}
+  FOOD_TYPES = {u'DRY': u'Dry Food', u'WET': u'Wet Food', u'RAW': u'Raw Food', 
+    u'FROZEN': u'Freeze Dried', u'HOME': u'Home Food', u'FRESH': u'Fresh Food', 
+    u'UNSPECIFIED': u'Unspecified'}
+  HUMAN_FOOD = {u'NEVER': u'Never', u'SOMETIMES': u'Sometimes', 
+    u'ALWAYS': u'Always', u'UNSPECIFIED': u'Unspecified'}
   PRIMARY_PROTEIN = {u'LAMB': u'Lamb', u'TURKEY': u'Turkey', 
-    u'CHICKEN': u'Chicken', u'BEEF': u'Beef'}
+    u'CHICKEN': u'Chicken', u'BEEF': u'Beef', u'UNSPECIFIED': u'Unspecified'}
   DENTAL_CARE = {u'TREATS': u'Dental Treats', u'OTHER': u'Other Dental Care',
-    u'NONE': u'None'}
+    u'NONE': u'None', u'UNSPECIFIED': u'Unspecified'}
   COAT_TYPES = {u'SHORT': u'Short-Coated', u'MEDIUM': u'Medium-Coated', 
-      u'LONG': u'Long-Coated', u'WIRE': u'Wire-Coated', u'CURLY': u'Curly-Coated',
-      u'HAIRLESS': u'Hairless'}
+    u'LONG': u'Long-Coated', u'WIRE': u'Wire-Coated', u'CURLY': u'Curly-Coated',
+    u'HAIRLESS': u'Hairless', u'UNSPECIFIED': u'Unspecified'}
+  OPTIONAL = [u'neutered', u'age', u'activity_level', u'weight', u'body_type', 
+    u'food_types', u'human_food', u'protein', u'allergies', u'picky_eater', 
+    u'dental', u'illnesses', u'medication', u'coat']
 
   id = db.Column(db.Integer, primary_key=True)
   owner_name = db.Column(db.Unicode(128), default=None, nullable=True)

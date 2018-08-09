@@ -17,26 +17,33 @@ class ProfileForm(FlaskForm):
   zip_code = StringField(u'Your zipcode: ', [validators.DataRequired()])
   email = EmailField(u'Your email: ', [validators.DataRequired(), validators.Email()])
   breed = StringField(u'Breed: ', [validators.Optional()])
-  gender = SelectField(u'Gender: ', 
+  gender = SelectField(u'Gender: ', default=u'UNSPECIFIED', 
     choices=zip(Profile.GENDERS.keys(), Profile.GENDERS.values()))
   neutered = BooleanField(u'Neutered: ')
   age = DateField(u'Birthdate: ', [validators.Optional()])
-  activity_level = SelectField(u'Activity level: ', [validators.Optional()],
-    choices=zip(Profile.ACTIVITY_LEVEL.keys(), Profile.ACTIVITY_LEVEL.values()))
+  activity_level = SelectField(u'Activity level: ', [validators.Optional()], 
+    default=u'UNSPECIFIED', choices=zip(Profile.ACTIVITY_LEVEL.keys(), 
+    Profile.ACTIVITY_LEVEL.values()))
   weight = IntegerField(u'Weight: ', [validators.Optional()])
-  body_type = SelectField(u'Body type: ', [validators.Optional()],
-    choices=zip(Profile.BODY_LEVEL.keys(), Profile.BODY_LEVEL.values()))
-  food_types = SelectMultipleField(u'Food types: ', [food_validator, validators.Optional()],
+  body_type = SelectField(u'Body type: ', [validators.Optional()], 
+    default=u'UNSPECIFIED', choices=zip(Profile.BODY_LEVEL.keys(), 
+    Profile.BODY_LEVEL.values()))
+  food_types = SelectMultipleField(u'Food types: ', 
+    [food_validator, validators.Optional()], default=u'UNSPECIFIED', 
     choices=zip(Profile.FOOD_TYPES.keys(), Profile.FOOD_TYPES.values()))
-  human_food = SelectField(u'Eats human food: ', [validators.Optional()],
-    choices=zip(Profile.HUMAN_FOOD.keys(), Profile.HUMAN_FOOD.values()))
-  protein = SelectField(u'Primary protein: ', [validators.Optional()],
-    choices=zip(Profile.PRIMARY_PROTEIN.keys(), Profile.PRIMARY_PROTEIN.values()))
+  human_food = SelectField(u'Eats human food: ', [validators.Optional()], 
+    default=u'UNSPECIFIED', choices=zip(Profile.HUMAN_FOOD.keys(), 
+    Profile.HUMAN_FOOD.values()))
+  protein = SelectField(u'Primary protein: ', [validators.Optional()], 
+    default=u'UNSPECIFIED', choices=zip(Profile.PRIMARY_PROTEIN.keys(), 
+    Profile.PRIMARY_PROTEIN.values()))
   allergies = StringField(u'Allergies: ')
   picky_eater = BooleanField(u'Picky eater: ')
-  dental = SelectField(u'Dental care: ', [validators.Optional()],
-    choices=zip(Profile.DENTAL_CARE.keys(), Profile.DENTAL_CARE.values()))
+  dental = SelectField(u'Dental care: ', [validators.Optional()], 
+    default=u'UNSPECIFIED', choices=zip(Profile.DENTAL_CARE.keys(), 
+    Profile.DENTAL_CARE.values()))
   illnesses = StringField(u'Illnesses: ')
   medication = StringField(u'Medications: ')
-  coat = SelectField(u'Coat type: ', [validators.Optional()],
-    choices=zip(Profile.COAT_TYPES.keys(), Profile.COAT_TYPES.values()))
+  coat = SelectField(u'Coat type: ', [validators.Optional()], 
+    default=u'UNSPECIFIED', choices=zip(Profile.COAT_TYPES.keys(), 
+    Profile.COAT_TYPES.values()))

@@ -22,7 +22,7 @@ def register_web_endpoint(app):
       db.session.add(profile)
       db.session.commit()
       return render_template(u'registered.html', previously_registered = False)
-    return render_template(u'profile_index.html', form=form)
+    return render_template(u'profile_index.html', form=form, optional=Profile.OPTIONAL)
 
   @app.route(u'/view_profiles')
   def view_profiles():
