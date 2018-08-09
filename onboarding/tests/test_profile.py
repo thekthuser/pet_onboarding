@@ -38,11 +38,13 @@ class ProfileTests(BaseTest):
     u"""
     Test POST with all required fields, double submit, and db.
     """
-    result = self.app.post(u'/', data=self.full_form, follow_redirects=True, content_type='application/x-www-form-urlencoded')
+    result = self.app.post(u'/', data=self.full_form, follow_redirects=True, 
+      content_type='application/x-www-form-urlencoded')
     self.assertEqual(result.status_code, 200)
     self.assertIn(u'Your pet is now registered.', result.data)
 
-    result = self.app.post(u'/', data=self.full_form, follow_redirects=True, content_type='application/x-www-form-urlencoded')
+    result = self.app.post(u'/', data=self.full_form, follow_redirects=True, 
+      content_type='application/x-www-form-urlencoded')
     self.assertEqual(result.status_code, 200)
     self.assertIn(u'This pet has already been registered.', result.data)
 
@@ -50,7 +52,8 @@ class ProfileTests(BaseTest):
     u"""
     Test db status after POST.
     """
-    result = self.app.post(u'/', data=self.full_form, follow_redirects=True, content_type='application/x-www-form-urlencoded')
+    result = self.app.post(u'/', data=self.full_form, follow_redirects=True, 
+      content_type='application/x-www-form-urlencoded')
     self.assertEqual(result.status_code, 200)
 
     profiles = Profile.query.all()
@@ -81,7 +84,8 @@ class ProfileTests(BaseTest):
     u"""
     Test view_profiles page.
     """
-    result = self.app.post(u'/', data=self.full_form, follow_redirects=True, content_type='application/x-www-form-urlencoded')
+    result = self.app.post(u'/', data=self.full_form, follow_redirects=True, 
+      content_type='application/x-www-form-urlencoded')
     self.assertEqual(result.status_code, 200)
 
     result = self.app.get(u'/view_profiles')

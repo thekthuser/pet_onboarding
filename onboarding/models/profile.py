@@ -23,20 +23,26 @@ class Profile(db.Model):
   zip_code = db.Column(db.Unicode(16), default=None, nullable=True)
   email = db.Column(db.Unicode(128), default=None, nullable=True)
   breed = db.Column(db.Unicode(64), default=None)
-  gender = db.Column(db.Enum(*GENDERS.keys(), name=u'profile_genders', validate_strings=True))
+  gender = db.Column(db.Enum(*GENDERS.keys(), name=u'profile_genders', 
+    validate_strings=True))
   neutered = db.Column(db.Boolean(), default=False)
   age = db.Column(db.Integer(), default=None)
   activity_level = db.Column(db.Enum(*ACTIVITY_LEVEL.keys(), validate_strings=True, 
     name=u'profile_activity'))
   weight = db.Column(db.Integer, default=None)
-  body_type = db.Column(db.Enum(*BODY_LEVEL.keys(), name=u'profile_body', validate_strings=True))
+  body_type = db.Column(db.Enum(*BODY_LEVEL.keys(), name=u'profile_body', 
+    validate_strings=True))
   #food_types is not an Enum, to handle multiple choices
   food_types = db.Column(db.Unicode(128), default=None)
-  human_food = db.Column(db.Enum(*HUMAN_FOOD.keys(), name=u'profile_human', validate_strings=True))
-  protein = db.Column(db.Enum(*PRIMARY_PROTEIN.keys(), name=u'profile_protein', validate_strings=True))
+  human_food = db.Column(db.Enum(*HUMAN_FOOD.keys(), name=u'profile_human', 
+    validate_strings=True))
+  protein = db.Column(db.Enum(*PRIMARY_PROTEIN.keys(), name=u'profile_protein', 
+    validate_strings=True))
   allergies = db.Column(db.Unicode(256), default=None)
   picky_eater = db.Column(db.Boolean(), default=False)
-  dental = db.Column(db.Enum(*DENTAL_CARE.keys(), name=u'profile_dental', validate_strings=True))
+  dental = db.Column(db.Enum(*DENTAL_CARE.keys(), name=u'profile_dental', 
+    validate_strings=True))
   illnesses = db.Column(db.UnicodeText(), default=None)
   medication = db.Column(db.UnicodeText(), default=None)
-  coat = db.Column(db.Enum(*COAT_TYPES.keys(), name=u'profile_coat', validate_strings=True))
+  coat = db.Column(db.Enum(*COAT_TYPES.keys(), name=u'profile_coat', 
+    validate_strings=True))
